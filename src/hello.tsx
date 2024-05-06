@@ -1,22 +1,5 @@
-import React from 'react'
-import {Table} from 'antd';
-
-const columns = [
-  {
-    title: 'Name',
-    dataIndex: 'name',
-    render: (text: string) => <a>{text}</a>,
-  },
-  {
-    title: 'Cash Assets',
-    className: 'column-money',
-    dataIndex: 'money',
-  },
-  {
-    title: 'Address',
-    dataIndex: 'address',
-  },
-];
+import { Table } from 'antd';
+import React from 'react';
 
 const data = [
   {
@@ -42,7 +25,29 @@ const data = [
 export default function Hello() {
   return <div>
     <Table
-      columns={columns}
+      style={{ width: 200 }}
+      columns={[
+        {
+          title: 'Name',
+          dataIndex: 'name',
+          width: 50,
+          ellipsis: { showTitle: true },
+        },
+        {
+          title: 'Cash Assets',
+          className: 'column-money',
+          width: 50,
+          ellipsis: { showTitle: true },
+          dataIndex: 'money',
+        },
+        {
+          title: 'Address',
+          dataIndex: 'address',
+          width: 50,
+          ellipsis: { showTitle: true },
+          render: (text: string) => <div style={{ display: 'inline' }}><a>{text}</a></div>,
+        },
+      ]}
       dataSource={data}
       bordered
       title={() => 'Header'}
